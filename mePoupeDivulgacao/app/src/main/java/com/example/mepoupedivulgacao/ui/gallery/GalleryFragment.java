@@ -1,35 +1,59 @@
 package com.example.mepoupedivulgacao.ui.gallery;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.mepoupedivulgacao.R;
 
 public class GalleryFragment extends Fragment {
 
     private GalleryViewModel galleryViewModel;
+    Button button1, button2, button3;
+    LottieAnimationView lottieInstragram, lottieFacebook, lottieTwiter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
                 ViewModelProviders.of(this).get(GalleryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        lottieInstragram = root.findViewById(R.id.lav_android_wave_json);
+        lottieInstragram.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/nathaliaarcuri/"));
+                startActivity(i);
             }
         });
+
+        lottieFacebook = root.findViewById(R.id.lav_facebook);
+        lottieFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/mepoupenaweb/"));
+                startActivity(i);
+            }
+        });
+
+        lottieTwiter = root.findViewById(R.id.twitter);
+        lottieTwiter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/mepoupenaweb"));
+                startActivity(i);
+            }
+        });
+
+
         return root;
     }
 }

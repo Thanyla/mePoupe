@@ -43,7 +43,7 @@ public class ExecutaRequisicao extends AsyncTask<Long, Void, String> {
         Log.i("", listaVideos.get(1).getUrl());
     }
 
-    List<ModelMePoupe> stringToJson(String text) {
+    public List<ModelMePoupe> stringToJson(String text) {
         List<ModelMePoupe> listaVideos = new ArrayList<ModelMePoupe>();
         JSONObject jobject = null;
         JSONObject itemVideo = null;
