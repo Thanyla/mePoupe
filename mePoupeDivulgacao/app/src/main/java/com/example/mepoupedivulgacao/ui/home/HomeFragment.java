@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.mepoupedivulgacao.R;
 import com.example.mepoupedivulgacao.ServiceMePoupe;
@@ -31,15 +30,12 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
     private ListView listView;
     private  TextView textView;
     private Button bLink1, bLink2;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         bLink1 = root.findViewById(R.id.button1);
         bLink2 = root.findViewById(R.id.button2);

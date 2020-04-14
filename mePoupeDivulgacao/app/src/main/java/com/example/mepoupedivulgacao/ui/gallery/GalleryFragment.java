@@ -10,21 +10,17 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.mepoupedivulgacao.R;
 
 public class GalleryFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
     Button button1, button2, button3;
     LottieAnimationView lottieInstragram, lottieFacebook, lottieTwiter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
         lottieInstragram = root.findViewById(R.id.lav_android_wave_json);
         lottieInstragram.setOnClickListener(new View.OnClickListener() {
